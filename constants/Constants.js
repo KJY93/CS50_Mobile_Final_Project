@@ -1,0 +1,1 @@
+export const BASE_URL_PATH = 'https://www.themealdb.com/api/json/v1/1';
