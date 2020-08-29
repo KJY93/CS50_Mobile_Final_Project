@@ -71,4 +71,18 @@ const Recipe = props => {
     )
 }
 
+Recipe.propTypes = {
+    img: PropTypes.string,
+    recipeName: PropTypes.string,
+    category: PropTypes.string,
+    type: PropTypes.string,
+    ingredients: PropTypes.arrayOf(
+        PropTypes.shape({
+            ingredient: PropTypes.string,
+            quantity: PropTypes.string,
+        })
+    ),
+    instructions: PropTypes.string,
+}
+
 export default Recipe
