@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, Image, StyleSheet, Text, SafeAreaView, ScrollView, View } from 'react-native';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { randomMeal } from '../redux/actions';
 import Constants from 'expo-constants';
 import Button from '../components/Button';
@@ -99,6 +99,8 @@ const styles = StyleSheet.create({
         width: imgWidth,
         height: imgWidth,
         borderRadius: 5,
+        borderWidth: 1,
+        borderColor: 'gray',
     },
     ingredients: {
         fontStyle: 'italic',
