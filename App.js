@@ -8,6 +8,8 @@ import HomeScreen from './screens/Home';
 import RandomScreen from './screens/Random';
 import ExploreScreen from './screens/Explore';
 import RecipeDetailsScreen from './screens/RecipeDetails';
+import RecipesByCategoryScreen from './screens/RecipesByCategory';
+import RecipesDetailsByCategoryScreen from './screens/RecipesDetailsByCategory'
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
@@ -37,6 +39,38 @@ function MainStack() {
   )
 }
 
+const ExploreStack = createStackNavigator();
+
+function ExploreCategoryStack() {
+  return (
+    <ExploreStack.Navigator
+      initialRouteName='Recipe Category'
+      headerMode='screen'
+      screenOptions={{
+        headerTintColor: 'white',
+        headerStyle: { backgroundColor: 'tomato' },
+      }}
+    >
+      <ExploreStack.Screen 
+        name='Recipe Category'
+        component={ExploreScreen}
+      />
+      
+      <ExploreStack.Screen 
+        name='Recipes By Category List'
+        component={RecipesByCategoryScreen}
+        options={({route}) => ({title: route.params.strCategory})}
+      />
+      
+      <ExploreStack.Screen 
+        name='Recipes Details By Category'
+        component={RecipesDetailsByCategoryScreen}
+        options={({route}) => ({title: route.params.strMeal})}
+      />
+    </ExploreStack.Navigator>
+  )
+}
+
 const Tab = createBottomTabNavigator();
 
 function MainTabs() {
@@ -63,7 +97,7 @@ function MainTabs() {
       }}
     >
       <Tab.Screen name='Main' component={MainStack} />
-      <Tab.Screen name='Explore' component={ExploreScreen} />
+      <Tab.Screen name='Explore' component={ExploreCategoryStack} />
       <Tab.Screen name='Random' component={RandomScreen} />
     </Tab.Navigator>
   )
