@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 
 const Row = props => {
     return ( 
-      <TouchableOpacity onPress={()=> props.onSelect(props.id, props.recipeName)} style={styles.container}>
+      <TouchableOpacity onPress={() => props.onSelect(props.id, props.recipeName)} style={styles.container}>
           <Image style={styles.image} source={{ uri: props.img }} />
           <View style={styles.recipeMetadata}>
             <Text style={styles.recipeName}>{props.recipeName}</Text>
